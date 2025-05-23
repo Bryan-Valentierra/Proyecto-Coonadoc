@@ -3,17 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
-  --primary-950: #172554;
+  --primary-orange: #ffa420;
+  --primary-green: #22cc23;
+  --primary-gradient: linear-gradient(90deg, #ffa420 0%, #22cc23 100%);
+  .text-primary-orange { color: var(--primary-orange) !important; }
+  .text-primary-green { color: var(--primary-green) !important; }
+  .bg-primary-orange { background-color: var(--primary-orange) !important; }
+  .bg-primary-green { background-color: var(--primary-green) !important; }
+  .hover\:text-primary-orange:hover { color: var(--primary-orange) !important; }
+  .hover\:bg-primary-orange\/10:hover { background-color: rgba(255, 164, 32, 0.1) !important; }
 }
 
 @layer base {
@@ -25,14 +23,18 @@
   body {
     @apply text-gray-800 antialiased;
     font-feature-settings: "kern";
+    background: var(--primary-gradient);
+    min-height: 100vh;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-gray-900 leading-tight;
+    @apply font-bold leading-tight;
+    color: var(--primary-orange);
   }
   
   p {
     @apply leading-relaxed;
+    color: var(--primary-green);
   }
 }
 
@@ -43,6 +45,8 @@
   
   .section {
     @apply py-16 md:py-24;
+    background: var(--primary-gradient);
+    border-radius: 1rem;
   }
   
   .btn {
@@ -50,15 +54,30 @@
   }
   
   .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg;
+    background: var(--primary-gradient);
+    color: #fff;
+    box-shadow: 0 2px 8px 0 rgba(34, 204, 35, 0.15);
   }
   
   .btn-outline {
-    @apply border border-current text-blue-600 hover:bg-blue-50;
+    border: 2px solid var(--primary-orange);
+    color: var(--primary-orange);
+    background: transparent;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300;
+    background: #fff;
+    border: 2px solid var(--primary-green);
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 0 rgba(255, 164, 32, 0.15);
+    transition: all 0.3s;
+  }
+  .gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
   }
 }
 
@@ -74,9 +93,9 @@
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
-  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(255, 164, 32, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(34, 204, 35, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 164, 32, 0); }
 }
 
 .animate-fadeIn {
