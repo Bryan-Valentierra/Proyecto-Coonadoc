@@ -30,8 +30,8 @@ const Navbar: React.FC = () => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `px-3 py-2 text-sm font-medium transition-colors duration-300 ${
       isActive 
-        ? 'text-blue-600 hover:text-blue-700' 
-        : 'text-gray-700 hover:text-blue-600'
+        ? 'text-primary-orange hover:text-primary-green' 
+        : 'text-gray-700 hover:text-primary-orange'
     }`;
 
   const menuVariants = {
@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-blue-600">Coonadoc</span>
+              <span className="text-xl font-bold" style={{ color: 'var(--primary-orange)' }}>Coonadoc</span>
             </Link>
           </div>
           
@@ -98,11 +98,11 @@ const Navbar: React.FC = () => {
             </NavLink>
             <div className="relative group">
               <button 
-                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 flex items-center gap-1 transition-colors duration-300"
+                className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-orange flex items-center gap-1 transition-colors duration-300"
                 onMouseEnter={() => setDropdownOpen(true)}
                 onMouseLeave={() => setDropdownOpen(false)}
               >
-                Precios <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                Precios <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} style={{ color: 'var(--primary-orange)' }} />
               </button>
               <AnimatePresence>
                 {dropdownOpen && (
@@ -116,13 +116,13 @@ const Navbar: React.FC = () => {
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
                     <div className="py-1">
-                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-orange/10 hover:text-primary-orange">
                         Página Web
                       </Link>
-                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-orange/10 hover:text-primary-orange">
                         E-Commerce
                       </Link>
-                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                      <Link to="/precios" className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-orange/10 hover:text-primary-orange">
                         Corporativo
                       </Link>
                     </div>
@@ -141,7 +141,8 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex">
             <Link
               to="/contacto"
-              className="ml-8 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300"
+              className="ml-8 px-4 py-2 text-sm font-medium text-white rounded-md shadow-sm transition-colors duration-300"
+              style={{ background: 'var(--primary-gradient)' }}
             >
               ¡Empezar ahora!
             </Link>
@@ -151,7 +152,7 @@ const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-orange"
               aria-expanded="false"
             >
               <span className="sr-only">Abrir menú principal</span>
@@ -178,14 +179,14 @@ const Navbar: React.FC = () => {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
               <NavLink
                 to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10"
                 onClick={() => setIsOpen(false)}
               >
                 Inicio
               </NavLink>
               <NavLink
                 to="/servicios"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10"
                 onClick={() => setIsOpen(false)}
               >
                 Servicios
@@ -193,7 +194,7 @@ const Navbar: React.FC = () => {
               <div>
                 <Link 
                   to="/precios"
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10"
                   onClick={() => setIsOpen(false)}
                 >
                   Precios
@@ -201,21 +202,21 @@ const Navbar: React.FC = () => {
                 <div className="pl-4 space-y-1">
                   <Link 
                     to="/precios" 
-                    className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600"
+                    className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-orange"
                     onClick={() => setIsOpen(false)}
                   >
                     Página Web
                   </Link>
                   <Link 
                     to="/precios" 
-                    className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600"
+                    className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-orange"
                     onClick={() => setIsOpen(false)}
                   >
                     E-Commerce
                   </Link>
                   <Link 
                     to="/precios" 
-                    className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600"
+                    className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-orange"
                     onClick={() => setIsOpen(false)}
                   >
                     Corporativo
@@ -224,21 +225,22 @@ const Navbar: React.FC = () => {
               </div>
               <NavLink
                 to="/nosotros"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10"
                 onClick={() => setIsOpen(false)}
               >
                 Nosotros
               </NavLink>
               <NavLink
                 to="/contacto"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-orange hover:bg-primary-orange/10"
                 onClick={() => setIsOpen(false)}
               >
                 Contacto
               </NavLink>
               <Link
                 to="/contacto"
-                className="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                className="block px-3 py-2 rounded-md text-base font-medium text-white"
+                style={{ background: 'var(--primary-gradient)' }}
                 onClick={() => setIsOpen(false)}
               >
                 ¡Empezar ahora!
